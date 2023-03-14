@@ -443,3 +443,6 @@ Además, incluye documentación sobre dicho código y un vídeo descriptivo de c
 
 ### Home
 <img src='/capturas/home.png'>
+
+### Colección
+<img src='/capturas/coleccion.png'>
