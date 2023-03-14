@@ -446,3 +446,215 @@ Además, incluye documentación sobre dicho código y un vídeo descriptivo de c
 
 ### Colección
 <img src='/capturas/coleccion.png'>
+
+
+## Documentos en formato JSON
+```
+{
+  nombre: "Lorena",
+  fecha: {
+    dia: 23,
+    mes: 12,
+    anio: 2000
+  },
+  direccion: {
+    calle: "Yabal",
+    localidad: "Jamilena",
+    provincia: "Jaen",
+    pais: "España"
+  },
+  participacion_mundial: [2014, 2018, 2022],
+  numero_participaciones_jo: 3,
+  lateralidad: "diestro"
+}
+
+```
+
+```
+{
+  nombre: "Jaime",
+  fecha: {
+    dia: 16,
+    mes: 4,
+    anio: 1990
+  },
+  direccion: {
+    calle: "Alamos",
+    localidad: "Jaen",
+    provincia: "Jaen",
+    pais: "España"
+  },
+  participacion_mundial: [2010, 2014, 2018],
+  numero_participaciones_jo: 3,
+  lateralidad: "diestro"
+}
+
+```
+
+```
+{
+  nombre: "Leire",
+  fecha: {
+    dia: 25,
+    mes: 6,
+    anio: 2004
+  },
+  direccion: {
+    calle: "Cuquillo",
+    localidad: "Aguadulce",
+    provincia: "Almeria",
+    pais: "España"
+  },
+  participacion_mundial: [2022],
+  numero_participaciones_jo: 1,
+  lateralidad: "diestro"
+}
+
+```
+
+```
+{
+  nombre: "Carlos",
+  fecha: {
+    dia: 17,
+    mes: 3,
+    anio: 2000
+  },
+  direccion: {
+    calle: "San Antonio",
+    localidad: "Torredonjimeno",
+    provincia: "Jaen",
+    pais: "España"
+  },
+  participacion_mundial: [2018, 2022],
+  numero_participaciones_jo: 2,
+  lateralidad: "zurdo"
+}
+
+```
+
+```
+{
+  nombre: "Natalia",
+  fecha: {
+    dia: 27,
+    mes: 9,
+    anio: 1993
+  },
+  direccion: {
+    calle: "Paseo de la Estacion",
+    localidad: "Granada",
+    provincia: "Granada",
+    pais: "España"
+  },
+  participacion_mundial: [2010, 2014, 2018, 2022],
+  numero_participaciones_jo: 4,
+  lateralidad: "diestro"
+}
+
+```
+
+```
+{
+  nombre: "Manuel",
+  fecha: {
+    dia: 26,
+    mes: 5,
+    anio: 1995
+  },
+  direccion: {
+    calle: "Naranjos",
+    localidad: "Móstoles",
+    provincia: "Madrid",
+    pais: "España"
+  },
+  participacion_mundial: [2010, 2014, 2018],
+  numero_participaciones_jo: 3,
+  lateralidad: "zurdo"
+}
+
+```
+
+```
+{
+  nombre: "Sofia",
+  fecha: {
+    dia: 11,
+    mes: 11,
+    anio: 2002
+  },
+  direccion: {
+    calle: "Fuente",
+    localidad: "Cordoba",
+    provincia: "Cordoba",
+    pais: "España"
+  },
+  participacion_mundial: [2018, 2022],
+  numero_participaciones_jo: 2,
+  lateralidad: "zurdo"
+}
+
+```
+
+```
+{
+  nombre: "Ana",
+  fecha: {
+    dia: 15,
+    mes: 5,
+    anio: 1990
+  },
+  direccion: {
+    calle: "Mayor",
+    localidad: "Madrid",
+    provincia: "Madrid",
+    pais: "España"
+  },
+  participacion_mundial: [2014, 2018],
+  numero_participaciones_jo: 2,
+  lateralidad: "diestro"
+}
+
+```
+
+```
+{
+  nombre: "Juan",
+  fecha: {
+    dia: 7,
+    mes: 8,
+    anio: 1985
+  },
+  direccion: {
+    calle: "Avenida del Parque",
+    localidad: "Barcelona",
+    provincia: "Barcelona",
+    pais: "España"
+  },
+  participacion_mundial: [2006, 2010, 2014, 2018],
+  numero_participaciones_jo: 4,
+  lateralidad: "diestro"
+}
+
+```
+
+```
+{
+  nombre: "María",
+  fecha: {
+    dia: 22,
+    mes: 1,
+    anio: 1995
+  },
+  direccion: {
+    calle: "Calle de la Rosa",
+    localidad: "Valencia",
+    provincia: "Valencia",
+    pais: "España"
+  },
+  participacion_mundial: [2014, 2018, 2022],
+  numero_participaciones_jo: 3,
+  lateralidad: "zurdo"
+}
+
+```
