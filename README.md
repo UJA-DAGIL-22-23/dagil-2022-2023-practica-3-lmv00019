@@ -440,3 +440,6 @@ Además, incluye documentación sobre dicho código y un vídeo descriptivo de c
 ## Capturas de pantalla fauna
 ### Base de datos
 <img src='/capturas/basededatos.png'>
+
+### Home
+<img src='/capturas/home.png'>
