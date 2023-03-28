@@ -17,7 +17,7 @@ const client = new faunadb.Client({
     secret: 'fnAE_At1WTAAzZq4aGq4ChyGrg8VGgbORz4VEqLG',
 });
 
-const COLLECTION = "¿¿¿ COLECCION ???"
+const COLLECTION = "TenisDeMesa"
 
 // CALLBACKS DEL MODELO
 
