@@ -177,6 +177,18 @@ Plantilla.listadoTodos = function (vector) {
 }
 
 
+Plantilla.listadoNombres = function (vector) {
+    //console.log( vector ) // Para comprobar lo que hay en vector
+    let msj = "";
+    msj += Plantilla.cabecera_nombres();
+    vector.forEach(e => msj += Plantilla.cuerpo_nombres(e))
+    msj += Plantilla.pie();
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar( "Listado de jugadores por nombre", msj )
+
+}
+
 /**
  * Crea la cabecera para mostrar la info como tabla
  * @returns Cabecera de la tabla
@@ -189,6 +201,18 @@ Plantilla.cabecera = function () {
         <tbody>
     `;
 }
+
+Plantilla.cabecera_nombres = function () {
+    return `<table class="listado-plantilla">
+        <thead>
+        <th>Nombre</th>
+        </thead>
+        <tbody>
+    `;
+}
+
+
+
 /**
  * Muestra la información de cada proyecto en un elemento TR con sus correspondientes TD
  * @param {proyecto} p Datos del proyecto a mostrar
@@ -209,6 +233,18 @@ Plantilla.cuerpo = function (p) {
     </tr>
     `;
 }
+
+
+Plantilla.cuerpo_nombres = function (p) {
+    const d = p.data
+
+    return `<tr title="${p.ref['@ref'].id}">
+    <td>${d.nombre}</td>
+    </tr>
+    `;
+}
+
+
 /**
  * Pie de la tabla en la que se muestran las personas
  * @returns Cadena con el pie de la tabla
@@ -241,6 +277,11 @@ Plantilla.muestraTodos = function () {
     this.recupera(this.listadoTodos);
 }
 
+
+Plantilla.muestraNombres = function () {
+    //this.descargarRuta("/plantilla/getTodos", this.listadoTodos());
+    this.recupera(this.listadoNombres);
+}
 
 
 
