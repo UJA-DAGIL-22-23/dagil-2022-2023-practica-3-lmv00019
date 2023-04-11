@@ -10,6 +10,8 @@
 /// Creo el espacio de nombres
 let Plantilla = {};
 
+
+
 // Plantilla de datosDescargados vacíos
 Plantilla.datosDescargadosNulos = {
     mensaje: "Datos Descargados No válidos",
@@ -17,6 +19,47 @@ Plantilla.datosDescargadosNulos = {
     email: "",
     fecha: ""
 }
+
+// Tags que voy a usar para sustituir los campos
+Plantilla.plantillaTags = {
+    "ID": "### ID ###",
+    "NOMBRE": "### NOMBRE ###",
+    "FECHA": "### FECHA ###",
+    "DIA": "### DIA ###",
+    "MES": "### MES ###",
+    "ANIO": "### ANIO ###",
+    "DIRECION": "### DIRECCION ###",
+    "CALLE": "### CALLE ###",
+    "LOCALIDAD": "### LOCALIDAD ###",
+    "PROVINCIA": "### PROVINCIA ###",
+    "PAIS": "### PAIS ###",
+    "PARTICIPACION MUNDIAL": "### PARTICIPACION MUNDIAL ###",
+    "NUMERO_PARTICIPACIONES_JJOO": "### NUMERO_PARTICIPACIONES_JJOO ###",
+    "LATERALIDAD": "### LATERALIDAD ###"
+}
+
+Plantilla.sustituyeTags = function (plantilla, persona) {
+    return plantilla
+        .replace(new RegExp(Plantilla.plantillaTags.ID, 'g'), persona.ref['@ref'].id)
+        .replace(new RegExp(Plantilla.plantillaTags.NOMBRE, 'g'), persona.data.nombre)
+        .replace(new RegExp(Plantilla.plantillaTags.FECHA, 'g'), persona.data.fecha)
+        .replace(new RegExp(Plantilla.plantillaTags.DIA, 'g'), persona.data.fecha.dia)
+        .replace(new RegExp(Plantilla.plantillaTags.MES, 'g'), persona.data.fecha.mes)
+        .replace(new RegExp(Plantilla.plantillaTags.ANIO, 'g'), persona.data.fecha.anio)
+        .replace(new RegExp(Plantilla.plantillaTags.DIRECCION, 'g'), persona.data.direccion)
+        .replace(new RegExp(Plantilla.plantillaTags.CALLE, 'g'), persona.data.direccion.calle)
+        .replace(new RegExp(Plantilla.plantillaTags.LOCALIDAD, 'g'), persona.data.direccion.localidad)
+        .replace(new RegExp(Plantilla.plantillaTags.PROVINCIA, 'g'), persona.data.direccion.provincia)
+        .replace(new RegExp(Plantilla.plantillaTags.PAIS, 'g'), persona.data.direccion.pais)
+        .replace(new RegExp(Plantilla.plantillaTags["PARTICIPACION MUNDIAL"], 'g'), persona.data.participacion_mundial)
+        .replace(new RegExp(Plantilla.plantillaTags.NUMERO_PARTICIPACIONES_JJOO, 'g'), persona.data.numero_participaciones_jo)
+        .replace(new RegExp(Plantilla.plantillaTags.LATERALIDAD, 'g'), persona.data.lateralidad)
+}
+
+Plantilla.actualiza = function (persona) {
+    return Plantilla.sustituyeTags(this.cuerpo, persona)
+}
+
 
 
 /**
@@ -92,6 +135,87 @@ Plantilla.mostrarAcercaDe = function (datosDescargados) {
     Frontend.Article.actualizar("Plantilla Acerca de", mensajeAMostrar)
 }
 
+/**
+ * Función que recuperar todas las personas llamando al MS Personas
+ * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
+ */
+
+Plantilla.recupera = async function (callBackFn) {
+    let response = null
+
+    // Intento conectar con el microservicio personas
+    try {
+        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        response = await fetch(url)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+        //throw error
+    }
+
+    // Muestro todas las persoans que se han descargado
+    let vectorPersonas = null
+    if (response) {
+        vectorPersonas = await response.json()
+        callBackFn(vectorPersonas.data)
+    }
+}
+
+
+
+Plantilla.listadoTodos = function (vector) {
+    //console.log( vector ) // Para comprobar lo que hay en vector
+    let msj = "";
+    msj += Plantilla.cabecera();
+    vector.forEach(e => msj += Plantilla.cuerpo(e))
+    msj += Plantilla.pie();
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar( "Listado de jugadores", msj )
+
+}
+
+
+/**
+ * Crea la cabecera para mostrar la info como tabla
+ * @returns Cabecera de la tabla
+ */
+Plantilla.cabecera = function () {
+    return `<table class="listado-plantilla">
+        <thead>
+        <th>Nombre</th><th>Fecha</th><th>Direccion</th><th>Años participacion mundial</th><th>Numero de participaciones</th><th>Lateralidad</th>
+        </thead>
+        <tbody>
+    `;
+}
+/**
+ * Muestra la información de cada proyecto en un elemento TR con sus correspondientes TD
+ * @param {proyecto} p Datos del proyecto a mostrar
+ * @returns Cadena conteniendo todo el elemento TR que muestra el proyecto.
+ */
+Plantilla.cuerpo = function (p) {
+    const d = p.data
+    const fecha = d.fecha;
+    const direccion = d.direccion;
+
+    return `<tr title="${p.ref['@ref'].id}">
+    <td>${d.nombre}</td>
+    <td>${fecha.dia}/${fecha.mes}/${fecha.anio}</td>
+    <td>${direccion.calle},${direccion.localidad},${direccion.provincia},${direccion.pais}</td>
+    <td>${d.participacion_mundial}</td>
+    <td>${d.numero_participaciones_jo}</td>
+    <td>${d.lateralidad}</td>
+    </tr>
+    `;
+}
+/**
+ * Pie de la tabla en la que se muestran las personas
+ * @returns Cadena con el pie de la tabla
+ */
+Plantilla.pie = function () {
+    return "</tbody></table>";
+}
 
 /**
  * Función principal para responder al evento de elegir la opción "Home"
@@ -106,6 +230,21 @@ Plantilla.procesarHome = function () {
 Plantilla.procesarAcercaDe = function () {
     this.descargarRuta("/plantilla/acercade", this.mostrarAcercaDe);
 }
+
+
+
+/**
+ * Función principal para responder al evento de elegir la opción "Listado jugadores"
+ */
+Plantilla.muestraTodos = function () {
+    //this.descargarRuta("/plantilla/getTodos", this.listadoTodos());
+    this.recupera(this.listadoTodos);
+}
+
+
+
+
+
 
 
 
