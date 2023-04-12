@@ -234,10 +234,7 @@ Plantilla.cuerpo = function (p) {
 Plantilla.cuerpo_nombres = function (p) {
     const d = p.data
 
-    return `<tr title="${p.ref['@ref'].id}">
-    <td>${d.nombre}</td>
-    </tr>
-    `;
+    return `<td>${d.nombre}</td></tr>`;
 }
 
 

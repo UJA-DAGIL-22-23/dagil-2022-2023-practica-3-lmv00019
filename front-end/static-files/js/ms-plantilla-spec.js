@@ -158,6 +158,28 @@ describe("Cabecera_nombres ", function () {
 });
 
 
+//Prueba funcion cuerpo_nombres
+describe("cuerpo_nombres ", function () {
+
+    // Preparo los datos
+    let d = {
+        nombre: "Lorena"
+    }
+
+    let p = { data: d }
+
+    // Realizo los expect
+    it("debería devolver una tabla con los nombres de todos los jugadores",
+        function () {
+            let msj = Plantilla.cuerpo_nombres(p)
+            expect(msj.includes(d.nombre)).toBeTrue();
+        });
+});
+
+
+
+
+
 
 /*
 //Prueba funcion cuerpo_nombres
