@@ -151,7 +151,7 @@ describe("Pie ", function () {
 
 //Prueba funcion cabecera_nombres
 describe("Cabecera_nombres ", function () {
-    it("debería devolver las etiquetas HTML para la cabecera de tabla",
+    it("debería devolver las etiquetas HTML para la cabecera_nombres de tabla",
         function () {
             expect(Plantilla.cabecera_nombres()).toBe(`<table class="listado-plantilla"><thead><th>Nombre</th></thead><tbody>` );
         });
@@ -159,7 +159,7 @@ describe("Cabecera_nombres ", function () {
 
 
 //Prueba funcion cuerpo_nombres
-describe("cuerpo_nombres ", function () {
+describe("Cuerpo_nombres ", function () {
 
     // Preparo los datos
     let d = {
@@ -177,18 +177,27 @@ describe("cuerpo_nombres ", function () {
 });
 
 
+//Prueba funcion cabecera
+describe("Cabecera ", function () {
+    it("debería devolver las etiquetas HTML para la cabecera de tabla",
+        function () {
+            expect(Plantilla.cabecera()).toBe(`<table class="listado-plantilla"><thead><th>Nombre</th><th>Fecha</th><th>Direccion</th><th>Años participacion mundial</th><th>Numero de participaciones</th><th>Lateralidad</th></thead><tbody>` );
+        });
+});
 
 
 
 
-/*
-//Prueba funcion cuerpo_nombres
-describe("Cuerpo_nombres ", function () {
+
+
+
+//Prueba funcion cuerpo
+describe("Cuerpo ", function () {
 
     // Preparo los datos
     let d = {
         nombre: "Lorena"
-       /* , fecha: { dia: 23, mes: 12, anio: 2000 }
+        , fecha: { dia: 23, mes: 12, anio: 2000 }
         , direccion: { calle: "Yabal", localidad: "Jamilena", provincia: "Jaen", pais: "España" }
         , participacion_mundial: [2014, 2018, 2022]
         , numero_participaciones_jo: 3
@@ -198,11 +207,11 @@ describe("Cuerpo_nombres ", function () {
     let p = { data: d }
 
     // Realizo los expect
-    it("debería devolver los nombres de los jugadores",
+    it("debería devolver una tabla con todos los datos de todos los jugadores",
         function () {
-            let msj = Plantilla.cuerpo_nombres(p)
+            let msj = Plantilla.cuerpo(p)
             expect(msj.includes(d.nombre)).toBeTrue();
-            /*expect(msj.includes(d.fecha.dia)).toBeTrue();
+            expect(msj.includes(d.fecha.dia)).toBeTrue();
             expect(msj.includes(d.fecha.mes)).toBeTrue();
             expect(msj.includes(d.fecha.anio)).toBeTrue();
             expect(msj.includes(d.direccion.calle)).toBeTrue();
@@ -214,5 +223,5 @@ describe("Cuerpo_nombres ", function () {
             expect(msj.includes(d.lateralidad)).toBeTrue();
 
         });
-});*/
+});
 

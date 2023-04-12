@@ -194,13 +194,7 @@ Plantilla.listadoNombres = function (vector) {
  * @returns Cabecera de la tabla
  */
 Plantilla.cabecera = function () {
-    return `<table class="listado-plantilla">
-        <thead>
-        <th>Nombre</th><th>Fecha</th><th>Direccion</th><th>Años participacion mundial</th><th>Numero de participaciones</th><th>Lateralidad</th>
-        </thead>
-        <tbody>
-        `
-    ;
+    return `<table class="listado-plantilla"><thead><th>Nombre</th><th>Fecha</th><th>Direccion</th><th>Años participacion mundial</th><th>Numero de participaciones</th><th>Lateralidad</th></thead><tbody>`;
 }
 
 Plantilla.cabecera_nombres = function () {
@@ -219,7 +213,7 @@ Plantilla.cuerpo = function (p) {
     const fecha = d.fecha;
     const direccion = d.direccion;
 
-    return `<tr title="${p.ref['@ref'].id}">
+    return `
     <td>${d.nombre}</td>
     <td>${fecha.dia}/${fecha.mes}/${fecha.anio}</td>
     <td>${direccion.calle},${direccion.localidad},${direccion.provincia},${direccion.pais}</td>
