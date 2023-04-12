@@ -199,16 +199,12 @@ Plantilla.cabecera = function () {
         <th>Nombre</th><th>Fecha</th><th>Direccion</th><th>Años participacion mundial</th><th>Numero de participaciones</th><th>Lateralidad</th>
         </thead>
         <tbody>
-    `;
+        `
+    ;
 }
 
 Plantilla.cabecera_nombres = function () {
-    return `<table class="listado-plantilla">
-        <thead>
-        <th>Nombre</th>
-        </thead>
-        <tbody>
-    `;
+    return `<table class="listado-plantilla"><thead><th>Nombre</th></thead><tbody>`;
 }
 
 

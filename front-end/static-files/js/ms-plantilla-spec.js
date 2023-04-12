@@ -140,9 +140,57 @@ Esto afecta a los métodos:
 
  */
 
- describe("Pie ", function () {
+//Prueba funcion pie de tabla
+describe("Pie ", function () {
     it("debería devolver las etiquetas HTML para el pie de tabla",
         function () {
             expect(Plantilla.pie()).toBe("</tbody></table>");
         });
 });
+
+
+//Prueba funcion cabecera_nombres
+describe("Cabecera_nombres ", function () {
+    it("debería devolver las etiquetas HTML para la cabecera de tabla",
+        function () {
+            expect(Plantilla.cabecera_nombres()).toBe(`<table class="listado-plantilla"><thead><th>Nombre</th></thead><tbody>` );
+        });
+});
+
+
+
+/*
+//Prueba funcion cuerpo_nombres
+describe("Cuerpo_nombres ", function () {
+
+    // Preparo los datos
+    let d = {
+        nombre: "Lorena"
+       /* , fecha: { dia: 23, mes: 12, anio: 2000 }
+        , direccion: { calle: "Yabal", localidad: "Jamilena", provincia: "Jaen", pais: "España" }
+        , participacion_mundial: [2014, 2018, 2022]
+        , numero_participaciones_jo: 3
+        , lateralidad: "diestro" 
+    }
+
+    let p = { data: d }
+
+    // Realizo los expect
+    it("debería devolver los nombres de los jugadores",
+        function () {
+            let msj = Plantilla.cuerpo_nombres(p)
+            expect(msj.includes(d.nombre)).toBeTrue();
+            /*expect(msj.includes(d.fecha.dia)).toBeTrue();
+            expect(msj.includes(d.fecha.mes)).toBeTrue();
+            expect(msj.includes(d.fecha.anio)).toBeTrue();
+            expect(msj.includes(d.direccion.calle)).toBeTrue();
+            expect(msj.includes(d.direccion.localidad)).toBeTrue();
+            expect(msj.includes(d.direccion.provincia)).toBeTrue();
+            expect(msj.includes(d.direccion.pais)).toBeTrue();
+            expect(msj.includes(d.participacion_mundial)).toBeTrue();
+            expect(msj.includes(d.numero_participaciones_jo)).toBeTrue();
+            expect(msj.includes(d.lateralidad)).toBeTrue();
+
+        });
+});*/
+
