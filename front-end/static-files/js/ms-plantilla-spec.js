@@ -162,19 +162,20 @@ describe("Cabecera_nombres ", function () {
 describe("Cuerpo_nombres ", function () {
 
     // Preparo los datos
-    let d = {
-        nombre: "Lorena"
+    let p = {
+        ref: { "@ref": { id: "ref persona 1" } },
+        data: {
+            nombre: "Lorena"
+        }
     }
 
-    let p = { data: d }
-
     // Realizo los expect
-    it("debería devolver una tabla con los nombres de todos los jugadores",
+    it("debería devolver las etiquetas HTML para el cuerpo_nombres de tabla",
         function () {
-            let msj = Plantilla.cuerpo_nombres(p)
-            expect(msj.includes(d.nombre)).toBeTrue();
+            expect(Plantilla.cuerpo_nombres(p)).toBe(`<tr title="${p.ref['@ref'].id}"><td>${p.data.nombre}</td></tr>`);
         });
 });
+
 
 
 //Prueba funcion cabecera
@@ -187,41 +188,63 @@ describe("Cabecera ", function () {
 
 
 
-
-
-
-
 //Prueba funcion cuerpo
 describe("Cuerpo ", function () {
 
     // Preparo los datos
-    let d = {
-        nombre: "Lorena"
-        , fecha: { dia: 23, mes: 12, anio: 2000 }
-        , direccion: { calle: "Yabal", localidad: "Jamilena", provincia: "Jaen", pais: "España" }
-        , participacion_mundial: [2014, 2018, 2022]
-        , numero_participaciones_jo: 3
-        , lateralidad: "diestro" 
+    let p = {
+        ref: { "@ref": { id: "ref persona 1" } },
+        data: {
+            nombre: "Lorena"
+            , fecha: { dia: 23, mes: 12, anio: 2000 }
+            , direccion: { calle: "Yabal", localidad: "Jamilena", provincia: "Jaen", pais: "España" }
+            , participacion_mundial: [2014, 2018, 2022]
+            , numero_participaciones_jo: 3
+            , lateralidad: "diestro" 
+        }
     }
 
-    let p = { data: d }
-
     // Realizo los expect
-    it("debería devolver una tabla con todos los datos de todos los jugadores",
+    it("debería devolver las etiquetas HTML para el cuerpo de tabla",
         function () {
             let msj = Plantilla.cuerpo(p)
-            expect(msj.includes(d.nombre)).toBeTrue();
-            expect(msj.includes(d.fecha.dia)).toBeTrue();
-            expect(msj.includes(d.fecha.mes)).toBeTrue();
-            expect(msj.includes(d.fecha.anio)).toBeTrue();
-            expect(msj.includes(d.direccion.calle)).toBeTrue();
-            expect(msj.includes(d.direccion.localidad)).toBeTrue();
-            expect(msj.includes(d.direccion.provincia)).toBeTrue();
-            expect(msj.includes(d.direccion.pais)).toBeTrue();
-            expect(msj.includes(d.participacion_mundial)).toBeTrue();
-            expect(msj.includes(d.numero_participaciones_jo)).toBeTrue();
-            expect(msj.includes(d.lateralidad)).toBeTrue();
+            expect(msj.includes(p.data.nombre)).toBeTrue();
+            expect(msj.includes(p.data.fecha.dia)).toBeTrue();
+            expect(msj.includes(p.data.fecha.mes)).toBeTrue();
+            expect(msj.includes(p.data.fecha.anio)).toBeTrue();
+            expect(msj.includes(p.data.direccion.calle)).toBeTrue();
+            expect(msj.includes(p.data.direccion.localidad)).toBeTrue();
+            expect(msj.includes(p.data.direccion.provincia)).toBeTrue();
+            expect(msj.includes(p.data.direccion.pais)).toBeTrue();
+            expect(msj.includes(p.data.participacion_mundial)).toBeTrue();
+            expect(msj.includes(p.data.numero_participaciones_jo)).toBeTrue();
+            expect(msj.includes(p.data.lateralidad)).toBeTrue();
 
         });
 });
 
+/*
+//Prueba funcion listadoNombres
+describe("listadoNombres ", function () {
+    it("debería imprimir por pantalla la tabla de los nombres de los jugadores",
+        function () {
+            let cab = `<table class="listado-plantilla"><thead><th>Nombre</th></thead><tbody>`
+            //let v = ['Juan', 'Pedro', 'María', 'Sunana', 'Pedro', 'Fatima', 'Hugo', 'Antonia', 'Pepe', 'Paco'];
+            let pi = "</tbody></table>"
+
+            let d = {
+                nombre: "Lorena"
+            }
+        
+            let p = { data: d }
+            
+
+            let msj=""
+            msj+=cab
+            msj+=d.nombre
+            msj+=pi
+
+            expect(Plantilla.listadoNombres().toBe(msj));
+    
+        });
+});*/

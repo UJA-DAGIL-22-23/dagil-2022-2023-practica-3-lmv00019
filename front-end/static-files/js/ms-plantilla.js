@@ -213,7 +213,7 @@ Plantilla.cuerpo = function (p) {
     const fecha = d.fecha;
     const direccion = d.direccion;
 
-    return `
+    return `<tr title="${p.ref['@ref'].id}">
     <td>${d.nombre}</td>
     <td>${fecha.dia}/${fecha.mes}/${fecha.anio}</td>
     <td>${direccion.calle},${direccion.localidad},${direccion.provincia},${direccion.pais}</td>
@@ -228,7 +228,7 @@ Plantilla.cuerpo = function (p) {
 Plantilla.cuerpo_nombres = function (p) {
     const d = p.data
 
-    return `<td>${d.nombre}</td></tr>`;
+    return `<tr title="${p.ref['@ref'].id}"><td>${d.nombre}</td></tr>`;
 }
 
 
