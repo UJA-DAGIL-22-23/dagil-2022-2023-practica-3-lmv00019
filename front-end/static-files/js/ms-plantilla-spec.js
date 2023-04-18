@@ -223,28 +223,28 @@ describe("Cuerpo ", function () {
         });
 });
 
-/*
+
 //Prueba funcion listadoNombres
 describe("listadoNombres ", function () {
-    it("debería imprimir por pantalla la tabla de los nombres de los jugadores",
-        function () {
-            let cab = `<table class="listado-plantilla"><thead><th>Nombre</th></thead><tbody>`
-            //let v = ['Juan', 'Pedro', 'María', 'Sunana', 'Pedro', 'Fatima', 'Hugo', 'Antonia', 'Pepe', 'Paco'];
-            let pi = "</tbody></table>"
+    // Realizo los expect
+  it("debería imprimir por pantalla la tabla de los nombres de los jugadores",
+      function () {
+          const vector = [
+              {
+                  ref: { "@ref": { id: "ref persona 1" } },
+                  data: { nombre: "Lorena" }
+              },
+              {
+                  ref: { "@ref": { id: "ref persona 2" } },
+                  data: { nombre:"Leire" }
+              }
+          ];
+          
+      const expectedMsj = Plantilla.cabecera_nombres() + Plantilla.cuerpo_nombres(vector[0]) + Plantilla.cuerpo_nombres(vector[1]) + Plantilla.pie();
+      spyOn(Frontend.Article, 'actualizar');
+      Plantilla.listadoNombres(vector);
+      expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Listado de jugadores por nombre', expectedMsj);
+  });
+});
 
-            let d = {
-                nombre: "Lorena"
-            }
-        
-            let p = { data: d }
-            
 
-            let msj=""
-            msj+=cab
-            msj+=d.nombre
-            msj+=pi
-
-            expect(Plantilla.listadoNombres().toBe(msj));
-    
-        });
-});*/
