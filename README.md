@@ -439,13 +439,14 @@ Además, incluye documentación sobre dicho código y un vídeo descriptivo de c
 
 ## Capturas de pantalla fauna
 ### Base de datos
-<img src='/capturas/basededatos.png'>
+![Base de datos de fauna](./assets/img/basededatos.png)
+
 
 ### Home
-<img src='/capturas/home.png'>
+![Pantalla home de fauna](./assets/img/home.png)
 
 ### Colección
-<img src='/capturas/coleccion.png'>
+![Estructura de directorios y ficheros de las aplicaciones](./assets/img/coleccion.png)
 
 
 ## Documentos en formato JSON
@@ -658,3 +659,8 @@ Además, incluye documentación sobre dicho código y un vídeo descriptivo de c
 }
 
 ```
+### Iteracion 1 inicio
+![Estructura de directorios y ficheros de las aplicaciones](./assets/img/iteracion1_inicial.png)
+
+### Iteracion 1 final
+![Estructura de directorios y ficheros de las aplicaciones](./assets/img/iteracion1_final.png)
