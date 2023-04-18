@@ -141,7 +141,7 @@ Esto afecta a los métodos:
  */
 
 //Prueba funcion pie de tabla
-describe("Pie ", function () {
+describe("Plantilla.Pie ", function () {
     it("debería devolver las etiquetas HTML para el pie de tabla",
         function () {
             expect(Plantilla.pie()).toBe("</tbody></table>");
@@ -150,7 +150,7 @@ describe("Pie ", function () {
 
 
 //Prueba funcion cabecera_nombres
-describe("Cabecera_nombres ", function () {
+describe("Plantilla.Cabecera_nombres ", function () {
     it("debería devolver las etiquetas HTML para la cabecera_nombres de tabla",
         function () {
             expect(Plantilla.cabecera_nombres()).toBe(`<table class="listado-plantilla"><thead><th>Nombre</th></thead><tbody>` );
@@ -159,7 +159,7 @@ describe("Cabecera_nombres ", function () {
 
 
 //Prueba funcion cuerpo_nombres
-describe("Cuerpo_nombres ", function () {
+describe("Plantilla.Cuerpo_nombres ", function () {
 
     // Preparo los datos
     let p = {
@@ -179,7 +179,7 @@ describe("Cuerpo_nombres ", function () {
 
 
 //Prueba funcion cabecera
-describe("Cabecera ", function () {
+describe("Plantilla.Cabecera ", function () {
     it("debería devolver las etiquetas HTML para la cabecera de tabla",
         function () {
             expect(Plantilla.cabecera()).toBe(`<table class="listado-plantilla"><thead><th>Nombre</th><th>Fecha</th><th>Direccion</th><th>Años participacion mundial</th><th>Numero de participaciones</th><th>Lateralidad</th></thead><tbody>` );
@@ -189,7 +189,7 @@ describe("Cabecera ", function () {
 
 
 //Prueba funcion cuerpo
-describe("Cuerpo ", function () {
+describe("Plantilla.Cuerpo ", function () {
 
     // Preparo los datos
     let p = {
@@ -225,7 +225,7 @@ describe("Cuerpo ", function () {
 
 
 //Prueba funcion listadoNombres
-describe("listadoNombres ", function () {
+describe("Plantilla.listadoNombres ", function () {
     // Realizo los expect
   it("debería imprimir por pantalla la tabla de los nombres de los jugadores",
       function () {
@@ -244,6 +244,70 @@ describe("listadoNombres ", function () {
       spyOn(Frontend.Article, 'actualizar');
       Plantilla.listadoNombres(vector);
       expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Listado de jugadores por nombre', expectedMsj);
+  });
+});
+
+
+//Prueba funcion listadoTodos
+describe("Plantilla.listadoTodos ", function () {
+    // Realizo los expect
+  it("debería imprimir por pantalla la tabla de todos los datos de los jugadores",
+      function () {
+          const vector = [
+              {
+                  ref: { "@ref": { id: "ref persona 1" } },
+                  data: { 
+                    nombre: "Lorena", 
+                    fecha: {
+                        dia: 23,
+                      mes: 12,
+                      anio: 2000
+                    },
+                    direccion: {
+                      calle: "Yabal",
+                      localidad: "Jamilena",
+                      provincia: "Jaen",
+                      pais: "España"
+                    },
+                    participacion_mundial: [
+                      2014,
+                      2018,
+                      2022
+                    ],
+                    numero_participaciones_jo: 3,
+                    lateralidad: "diestro"
+                  }
+              },
+              {
+                ref: { "@ref": { id: "ref persona 2" } },
+                data: { 
+                  nombre: "Jaime", 
+                  fecha: {
+                      dia: 16,
+                    mes: 04,
+                    anio: 1990
+                  },
+                  direccion: {
+                    calle: "Alamos",
+                    localidad: "Jaen",
+                    provincia: "Jaen",
+                    pais: "España"
+                  },
+                  participacion_mundial: [
+                    2010,
+                    2014,
+                    2018
+                  ],
+                  numero_participaciones_jo: 3,
+                  lateralidad: "diestro"
+                }
+              }
+          ];
+          
+      const expectedMsj = Plantilla.cabecera() + Plantilla.cuerpo(vector[0]) + Plantilla.cuerpo(vector[1]) + Plantilla.pie();
+      spyOn(Frontend.Article, 'actualizar');
+      Plantilla.listadoTodos(vector);
+      expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Listado de jugadores', expectedMsj);
   });
 });
 
