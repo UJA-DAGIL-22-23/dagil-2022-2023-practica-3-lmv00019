@@ -660,7 +660,16 @@ Además, incluye documentación sobre dicho código y un vídeo descriptivo de c
 
 ```
 ### Iteracion 1 inicio
-![Estructura de directorios y ficheros de las aplicaciones](./assets/img/iteracion1_inicial.png)
+![Tablero trello inicio iteracion 1](./assets/img/iteracion1_inicial.png)
+
+#### H.U 01
+![Funcionalidad H.U 01](./assets/img/appHU1.png)
+
+#### H.U 02
+![Funcionalidad H.U 02](./assets/img/appHU2.png)
+
+#### H.U 04
+![Funcionalidad H.U 04](./assets/img/appHU4.png)
 
 ### Iteracion 1 final
-![Estructura de directorios y ficheros de las aplicaciones](./assets/img/iteracion1_final.png)
+![Tablero trello final iteracion 1](./assets/img/iteracion1_final.png)
