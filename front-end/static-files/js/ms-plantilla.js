@@ -271,6 +271,49 @@ Plantilla.muestraNombres = function () {
 }
 
 
+/**
+ * Función que recuperar los datos y los muestra en orden alfabetico
+ * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
+ */ 
+Plantilla.ordenaAlfabeticamente = async function (callBackFn) {
+    let response = null
+
+    try {
+        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        response = await fetch(url)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+        //throw error
+    }
+
+    // Muestro todos los plantilla que se han descargado
+    let vectorPersonas = null
+    if (response) {
+        vectorPersonas = await response.json()
+        vectorPersonas.data.sort((a,b) => {
+            const nombreA = a.data.nombre.toLowerCase();
+            const nombreB = b.data.nombre.toLowerCase();
+
+            if(nombreA < nombreB) { 
+                return -1; 
+            }
+            if(nombreA > nombreB) { 
+                return 1; 
+            }
+            return 0;
+        });
+
+        callBackFn(vectorPersonas.data)
+    }
+}
+
+
+Plantilla.muestraNombresAlfabeticamente = function () {
+    this.ordenaAlfabeticamente(this.listadoNombres);
+}
+
 
 
 
