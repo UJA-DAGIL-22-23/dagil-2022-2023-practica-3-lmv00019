@@ -272,7 +272,7 @@ Plantilla.muestraNombres = function () {
 
 
 /**
- * Función que recuperar los datos y los muestra en orden alfabetico
+ * Función que recuperar los datos y muestra los nombres de los jugadores en orden alfabetico
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */ 
 Plantilla.ordenaAlfabeticamente = async function (callBackFn) {
@@ -314,6 +314,129 @@ Plantilla.muestraNombresAlfabeticamente = function () {
     this.ordenaAlfabeticamente(this.listadoNombres);
 }
 
+
+/**
+ * Función que recuperar los datos y los muestra ordenados por un campo indicado
+ * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
+ */ 
+Plantilla.ordenaPorCampo = async function (campo, callBackFn) {
+    let response = null
+
+    // Intento conectar con el microservicio plantilla
+    try {
+        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        response = await fetch(url)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+        //throw error
+    }
+
+    // Muestro todos los plantilla que se han descargado
+    let vectorPersonas = null
+    if (response) {
+        vectorPersonas = await response.json()
+        vectorPersonas.data.sort((a,b) => {
+            const campoA = a.data[campo].toLowerCase();
+            const campoB = b.data[campo].toLowerCase();
+
+            if(campoA < campoB) { 
+                return -1; 
+            }
+            if(campoA > campoB) { 
+                return 1; 
+            }
+            return 0;
+        });
+
+        callBackFn(vectorPersonas.data)
+    }
+}
+
+Plantilla.muestraDatosCampo = function (variable) {
+    Plantilla.ordenaPorCampo(variable,Plantilla.listadoTodos);
+}
+
+
+Plantilla.ordenaPorCampoCompuesto = async function (campo,campo1, callBackFn) {
+    let response = null
+
+    // Intento conectar con el microservicio plantilla
+    try {
+        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        response = await fetch(url)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+        //throw error
+    }
+
+    // Muestro todos los plantilla que se han descargado
+    let vectorPersonas = null
+    if (response) {
+        vectorPersonas = await response.json()
+        vectorPersonas.data.sort((a,b) => {
+            const campoA = a.data[campo][campo1].toLowerCase();
+            const campoB = b.data[campo][campo1].toLowerCase();
+
+            if(campoA < campoB) { 
+                return -1; 
+            }
+            if(campoA > campoB) { 
+                return 1; 
+            }
+            return 0;
+        });
+
+        callBackFn(vectorPersonas.data)
+    }
+}
+
+Plantilla.muestraDatosCampoCompuesto = function (variable,variable1) {
+    Plantilla.ordenaPorCampoCompuesto(variable,variable1,Plantilla.listadoTodos);
+}
+
+Plantilla.ordenaPorCampoNumerico = async function (campo, callBackFn) {
+    let response = null
+
+    // Intento conectar con el microservicio plantilla
+    try {
+        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        response = await fetch(url)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+        //throw error
+    }
+
+    // Muestro todos los plantilla que se han descargado
+    let vectorPersonas = null
+    if (response) {
+        vectorPersonas = await response.json()
+        vectorPersonas.data.sort((a,b) => {
+            const campoA = parseFloat(a.data[campo]);
+            const campoB = parseFloat(b.data[campo]);
+
+            if(campoA < campoB) { 
+                return -1; 
+            }
+            if(campoA > campoB) { 
+                return 1; 
+            }
+            return 0;
+        });
+
+        callBackFn(vectorPersonas.data)
+    }
+}
+
+
+Plantilla.muestraDatosCampoNumerico = function (variable) {
+    Plantilla.ordenaPorCampoNumerico(variable,Plantilla.listadoTodos);
+}
 
 
 

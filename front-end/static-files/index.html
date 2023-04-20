@@ -32,6 +32,17 @@
             title="Llama a la ruta /getTodos del MS Plantilla">Listado jugadores por nombre</a>
         <a href="javascript:Plantilla.muestraNombresAlfabeticamente()" class="opcion-principal"
             title="Llama a la ruta /getTodos del MS Plantilla y muestra nombres alfabeticamente">Listado nombres alfabeticamente</a>
+        <br></br>
+        <div class="dropdown">
+            <button class="dropbtn">Listado ordenar por</button>
+            <br></br>
+            <div class="dropdown-content">
+                <a href="javascript:Plantilla.muestraDatosCampo('nombre')" class="opcion-principal" title="Realiza un listado de todos los jugadores ordenados por nombre">Nombre</a>
+                <a href="javascript:Plantilla.muestraDatosCampoCompuesto('direccion', 'calle')" class="opcion-principal" title="Realiza un listado de todos los jugadores ordenados por direccion">Direccion</a>
+                <a href="javascript:Plantilla.muestraDatosCampoNumerico('numero_participaciones_jo')" class="opcion-principal" title="Realiza un listado de todos los jugadores ordenados por numero de participaciones en los jjoo">Participaciones juegos olímpicos</a>
+                <a href="javascript:Plantilla.muestraDatosCampo('lateralidad')" class="opcion-principal" title="Realiza un listado de todos los jugadores ordenados por lateralidad">Lateralidad</a>
+            </div>
+        </div>
     </nav>
 
     <!-- 

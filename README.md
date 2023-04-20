@@ -676,8 +676,18 @@ Además, incluye documentación sobre dicho código y un vídeo descriptivo de c
 
 
 
+
+
+
+
 ### Iteracion 2 inicial
 ![Tablero trello inicial iteracion 2](./assets/img/iteracion2_inicial.png)
 
 #### H.U 03
 ![Funcionalidad H.U 03](./assets/img/appHU3.png)
+
+#### H.U 05 campo DIRECCION
+![Funcionalidad H.U 05](./assets/img/appHU5.1.png)
+
+#### H.U 05 campo NUMERO DE PARTICIPACIONES
+![Funcionalidad H.U 05](./assets/img/appHU5.2.png)
