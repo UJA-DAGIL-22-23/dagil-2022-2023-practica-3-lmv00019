@@ -337,7 +337,7 @@ Plantilla.ordenaPorCampoNumerico = async function (campo, callBackFn) {
     }
 }
 
-/*
+
 Plantilla.recuperaUnJugador = async function (idJugador, callBackFn) {
     try {
         const url = Frontend.API_GATEWAY + "/plantilla/getPorId/" + idJugador
@@ -350,7 +350,7 @@ Plantilla.recuperaUnJugador = async function (idJugador, callBackFn) {
         alert("Error: No se han podido acceder al API Gateway")
         console.error(error)
     }
-}*/
+}
 
 /*
 Plantilla.buscarPorNombre = async function (callBackFn, nombre) {
@@ -452,7 +452,7 @@ Plantilla.listadoNombres = function (vector) {
 
 }
 
-/*
+
 Plantilla.listarUnJugador = function (jugador) {
     let msj = "";
     msj += Plantilla.cabecera();
@@ -462,7 +462,7 @@ Plantilla.listarUnJugador = function (jugador) {
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar( "Jugador mostrado", msj )
 
-}*/
+}
 
 
 
@@ -526,10 +526,10 @@ Plantilla.muestraDatosCampoNumerico = function (variable) {
     Plantilla.ordenaPorCampoNumerico(variable,Plantilla.listadoTodos);
 }
 
-/*
+
 Plantilla.muestraUnJugador = function (idJugador) {
     this.recuperaUnJugador(idJugador, this.listarUnJugador);
-}*/
+}
 
 /*
 Plantilla.muestraDatosUnJugador = function (buscar) {

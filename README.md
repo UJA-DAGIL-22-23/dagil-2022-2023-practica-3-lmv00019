@@ -671,7 +671,7 @@ Además, incluye documentación sobre dicho código y un vídeo descriptivo de c
 #### H.U 04
 ![Funcionalidad H.U 04](./assets/img/appHU4.png)
 
-### Iteracion 1 final
+### Iteracion 1 fin
 ![Tablero trello final iteracion 1](./assets/img/iteracion1_final.png)
 
 
@@ -680,7 +680,7 @@ Además, incluye documentación sobre dicho código y un vídeo descriptivo de c
 
 
 
-### Iteracion 2 inicial
+### Iteracion 2 inicio
 ![Tablero trello inicial iteracion 2](./assets/img/iteracion2_inicial.png)
 
 #### H.U 03
