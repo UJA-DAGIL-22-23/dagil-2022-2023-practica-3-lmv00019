@@ -119,6 +119,21 @@ const CB_OTHERS = {
         }
     },
 
+
+    getPorId: async (req, res) => {
+        try {
+                // console.log( "getPorId req", req.params.idJugador ) // req.params contiene todos los parámetros de la llamada
+                let jugador = await client.query(
+                    q.Get(q.Ref(q.Collection(COLLECTION), req.params.idJugador))
+               )
+                // console.log( persona ) // Para comprobar qué se ha devuelto en persona
+                CORS(res)
+                    .status(200)
+                    .json(jugador)
+            } catch (error) {
+                CORS(res).status(500).json({ error: error.description })
+            }
+    },
 }
 
 // Une todos los callbacks en un solo objeto para poder exportarlos.
