@@ -691,3 +691,6 @@ Además, incluye documentación sobre dicho código y un vídeo descriptivo de c
 
 #### H.U 05 campo NUMERO DE PARTICIPACIONES
 ![Funcionalidad H.U 05](./assets/img/appHU5.2.png)
+
+#### H.U 06 
+![Funcionalidad H.U 06](./assets/img/appHU6.png)
