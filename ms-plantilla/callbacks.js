@@ -134,6 +134,7 @@ const CB_OTHERS = {
                 CORS(res).status(500).json({ error: error.description })
             }
     },
+    
 }
 
 // Une todos los callbacks en un solo objeto para poder exportarlos.

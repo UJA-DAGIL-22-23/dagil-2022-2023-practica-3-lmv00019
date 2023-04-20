@@ -34,8 +34,7 @@
             title="Llama a la ruta /getTodos del MS Plantilla y muestra nombres alfabeticamente">Listado nombres alfabeticamente</a>
         <br></br>
         <div class="dropdown">
-            <button class="dropbtn">Listado ordenar por</button>
-            <br></br>
+            <h2>Listado ordenado por:</h2>
             <div class="dropdown-content">
                 <a href="javascript:Plantilla.muestraDatosCampo('nombre')" class="opcion-principal" title="Realiza un listado de todos los jugadores ordenados por nombre">Nombre</a>
                 <a href="javascript:Plantilla.muestraDatosCampoCompuesto('direccion', 'calle')" class="opcion-principal" title="Realiza un listado de todos los jugadores ordenados por direccion">Direccion</a>
@@ -44,7 +43,7 @@
             </div>
         </div>
         <br></br>
-
+        <h2>Otras funcionalidades:</h2>
         <a href="javascript:Plantilla.muestraUnJugador('358543439432777933')" class="opcion-principal"
             title="Llama a la ruta /getTodos del MS Plantilla y muestra todos los datos de un jugador">Listar datos de un jugador</a>
     </nav>
@@ -52,18 +51,18 @@
 
     <br></br>
     
-    <!-- 
+    
     <form>
-        <input type="text" id="buscar" name="buscar" placeholder="Nombre" class="busc">
-        <button class="btn" onclick="buscar()">Buscar</button>
+        <input type="text" id="buscar" name="buscar" placeholder="Nombre">
+        <button class="btn" type="button" onclick="buscar1()">Buscar</button>
     </form>
       <script>
-        function buscar() {
-            var busqueda = document.getElementById("buscar").value;
-            Plantilla.muestraDatosUnJugador(busqueda);
+        function buscar1() {
+            var buscar = document.getElementById("buscar").value;
+            Plantilla.muestraDatosDadoNombre(buscar);
         }
       </script>
-    -->
+    
 
 
     <!-- 

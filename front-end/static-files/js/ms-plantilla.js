@@ -352,10 +352,9 @@ Plantilla.recuperaUnJugador = async function (idJugador, callBackFn) {
     }
 }
 
-/*
+
 Plantilla.buscarPorNombre = async function (callBackFn, nombre) {
     let response = null
-    console.log(nombre);
     // Intento conectar con el microservicio proyectos
     try {
         const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
@@ -371,12 +370,11 @@ Plantilla.buscarPorNombre = async function (callBackFn, nombre) {
     let vectorPersonas = null
     if (response) {
         vectorPersonas = await response.json() 
-        console.log(vectorPersonas.data[0].data)   
-        const filtro = vectorPersonas.data.filter(jugador => jugador.data.nombre === nombre)    
-        console.log(filtro);   
+        const filtro = vectorPersonas.data.filter(jugador => jugador.data.nombre === nombre);      
         callBackFn(filtro)
     }
-}*/
+}
+
 
 
 //FUNCIONES PARA MOSTRAR
@@ -531,10 +529,10 @@ Plantilla.muestraUnJugador = function (idJugador) {
     this.recuperaUnJugador(idJugador, this.listarUnJugador);
 }
 
-/*
-Plantilla.muestraDatosUnJugador = function (buscar) {
-    this.buscarPorNombre(Plantilla.listadoTodos, buscar);
-}*/
+
+Plantilla.muestraDatosDadoNombre = function (buscar) {
+    this.buscarPorNombre(this.listadoTodos, buscar);
+}
 
 
 
