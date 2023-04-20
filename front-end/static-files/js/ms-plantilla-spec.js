@@ -312,5 +312,37 @@ describe("Plantilla.listadoTodos ", function () {
 });
 
 
-
-
+//Prueba listarUnJugador
+describe("Plantilla.listarUnJugador", function () {
+    it("debería imprimir por pantalla los datos de un jugador", function () {
+      const jugador = {
+        ref: { "@ref": { id: "ref persona 1" } },
+        data: { 
+          nombre: "Lorena", 
+          fecha: {
+            dia: 23,
+            mes: 12,
+            anio: 2000
+          },
+          direccion: {
+            calle: "Yabal",
+            localidad: "Jamilena",
+            provincia: "Jaen",
+            pais: "España"
+          },
+          participacion_mundial: [
+            2014,
+            2018,
+            2022
+          ],
+          numero_participaciones_jo: 3,
+          lateralidad: "diestro"
+        }
+      };
+      const expectedMsj = Plantilla.cabecera() + Plantilla.cuerpo(jugador) + Plantilla.pie();
+      spyOn(Frontend.Article, 'actualizar');
+      Plantilla.listarUnJugador(jugador);
+      expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Jugador mostrado', expectedMsj);
+    });
+  });
+  
