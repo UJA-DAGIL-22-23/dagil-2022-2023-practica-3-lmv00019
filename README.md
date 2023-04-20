@@ -694,3 +694,6 @@ Además, incluye documentación sobre dicho código y un vídeo descriptivo de c
 
 #### H.U 06 
 ![Funcionalidad H.U 06](./assets/img/appHU6.png)
+
+### Iteracion 2 fin
+![Tablero trello final iteracion 1](./assets/img/iteracion2_final.png)
