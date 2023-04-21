@@ -375,6 +375,30 @@ Plantilla.buscarPorNombre = async function (callBackFn, nombre) {
     }
 }
 
+Plantilla.buscarPorVarios = async function (callBackFn, nombre, localidad, participaciones, lateralidad) {
+    let response = null
+    // Intento conectar con el microservicio proyectos
+    try {
+        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        response = await fetch(url)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+        //throw error
+    }
+
+    // Filtro el vector de personas para obtener solo la que tiene el nombre pasado como parámetro
+    let vectorPersonas = null
+    if (response) {
+        vectorPersonas = await response.json() 
+        const filtro = vectorPersonas.data.filter(jugador => jugador.data.nombre === nombre && 
+            jugador.data.direccion.localidad === localidad && jugador.data.numero_participaciones_jo.toString() === participaciones 
+            && jugador.data.lateralidad == lateralidad);      
+        callBackFn(filtro)
+    }
+}
+
 
 
 //FUNCIONES PARA MOSTRAR
@@ -532,6 +556,10 @@ Plantilla.muestraUnJugador = function (idJugador) {
 
 Plantilla.muestraDatosDadoNombre = function (buscar) {
     this.buscarPorNombre(this.listadoTodos, buscar);
+}
+
+Plantilla.muestraDatosDadoVarios = function (dato1,dato2,dato3,dato4) {
+    this.buscarPorVarios(this.listadoTodos,dato1,dato2,dato3,dato4);
 }
 
 

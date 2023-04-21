@@ -46,7 +46,7 @@
         <h2>Otras funcionalidades:</h2>
         <a href="javascript:Plantilla.muestraUnJugador('358543439432777933')" class="opcion-principal"
             title="Llama a la ruta /getTodos del MS Plantilla y muestra todos los datos de un jugador">Listar datos de un jugador</a>
-    </nav>
+  
 
 
     <br></br>
@@ -63,7 +63,24 @@
         }
       </script>
     
-
+    <form>
+        <input type="text" id="nom" name="nom" placeholder="Nombre">
+        <input type="text" id="loc" name="loc" placeholder="Localidad">
+        <input type="text" id="part" name="part" placeholder="Número participaciones olímpicas">
+        <input type="text" id="lat" name="lat" placeholder="Lateralidad">
+        <button class="btn" type="button" onclick="buscarVarios()">Buscar por varios criterios</button>
+    </form>
+        <script>
+            function buscarVarios() {
+                var d1 = document.getElementById("nom").value;
+                var d2 = document.getElementById("loc").value;
+                var d3 = document.getElementById("part").value;
+                var d4 = document.getElementById("lat").value;
+                Plantilla.muestraDatosDadoVarios(d1,d2,d3,d4);
+            }
+        </script>
+    
+    </nav>
 
     <!-- 
         Article en el que se va a mostrar la info cuando se pinche una opción del menú 

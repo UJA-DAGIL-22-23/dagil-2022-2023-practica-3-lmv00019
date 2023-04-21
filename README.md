@@ -697,3 +697,13 @@ Además, incluye documentación sobre dicho código y un vídeo descriptivo de c
 
 ### Iteracion 2 fin
 ![Tablero trello final iteracion 1](./assets/img/iteracion2_final.png)
+
+
+
+
+### Iteracion 3 inicio
+![Tablero trello inicio iteracion 3](./assets/img/iteracion3_inicial.png)
+
+#### H.U 08
+![Funcionalidad H.U 08](./assets/img/appHU8.png)
+
