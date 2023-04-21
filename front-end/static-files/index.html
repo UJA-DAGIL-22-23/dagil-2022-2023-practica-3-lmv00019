@@ -43,7 +43,7 @@
             </div>
         </div>
         <br></br>
-        <h2>Otras funcionalidades:</h2>
+        <h2>Listar jugador dado su id:</h2>
         <a href="javascript:Plantilla.muestraUnJugador('358543439432777933')" class="opcion-principal"
             title="Llama a la ruta /getTodos del MS Plantilla y muestra todos los datos de un jugador">Listar datos de un jugador</a>
   
@@ -51,7 +51,7 @@
 
     <br></br>
     
-    
+    <h2>Búsqueda dado un nombre</h2>
     <form>
         <input type="text" id="buscar" name="buscar" placeholder="Nombre">
         <button class="btn" type="button" onclick="buscar1()">Buscar</button>
@@ -63,12 +63,13 @@
         }
       </script>
     
+    <h2>Búsqueda que cumpla todos los criterios simultáneamente</h2>
     <form>
         <input type="text" id="nom" name="nom" placeholder="Nombre">
         <input type="text" id="loc" name="loc" placeholder="Localidad">
         <input type="text" id="part" name="part" placeholder="Número participaciones olímpicas">
         <input type="text" id="lat" name="lat" placeholder="Lateralidad">
-        <button class="btn" type="button" onclick="buscarVarios()">Buscar por varios criterios</button>
+        <button class="btn" type="button" onclick="buscarVarios()">Buscar</button>
     </form>
         <script>
             function buscarVarios() {
@@ -80,6 +81,26 @@
             }
         </script>
     
+
+    <h2>Búsqueda que cumpla al menos un criterio</h2>
+    <form>
+        <input type="text" id="nom2" name="nom2" placeholder="Nombre">
+        <input type="text" id="loc2" name="loc2" placeholder="Localidad">
+        <input type="text" id="part2" name="part2" placeholder="Número participaciones olímpicas">
+        <input type="text" id="lat2" name="lat2" placeholder="Lateralidad">
+        <button class="btn" type="button" onclick="buscarVarios2()">Buscar</button>
+    </form>
+        <script>
+            function buscarVarios2() {
+                var d12 = document.getElementById("nom2").value;
+                var d22 = document.getElementById("loc2").value;
+                var d32 = document.getElementById("part2").value;
+                var d42 = document.getElementById("lat2").value;
+                Plantilla.muestraDatosDadoVarios2(d12,d22,d32,d42);
+            }
+        </script>
+
+
     </nav>
 
     <!-- 
