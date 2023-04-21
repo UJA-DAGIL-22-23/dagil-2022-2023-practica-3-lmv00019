@@ -707,3 +707,6 @@ Además, incluye documentación sobre dicho código y un vídeo descriptivo de c
 #### H.U 08
 ![Funcionalidad H.U 08](./assets/img/appHU8.png)
 
+#### H.U 10
+![Funcionalidad H.U 10](./assets/img/appHU10.png)
+
