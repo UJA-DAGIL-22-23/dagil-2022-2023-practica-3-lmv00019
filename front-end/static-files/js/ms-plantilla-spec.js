@@ -194,6 +194,9 @@ describe("Plantilla.Cabecera ", function () {
         function () {
             expect(Plantilla.cabecera()).toBe(`<table class="listado-plantilla"><thead><th>Nombre</th><th>Fecha</th><th>Direccion</th><th>Años participacion mundial</th><th>Numero de participaciones</th><th>Lateralidad</th></thead><tbody>` );
         });
+    it("debería devolver las etiquetas HTML para la cabecera de tabla al pasarle un valor vacío", function() {
+            expect(Plantilla.cabecera()).not.toBe("");
+        });
 });
 
 
