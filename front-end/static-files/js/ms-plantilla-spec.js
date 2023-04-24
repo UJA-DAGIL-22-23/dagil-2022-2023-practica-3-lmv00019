@@ -149,6 +149,7 @@ describe("Plantilla.Pie ", function () {
     it("debería devolver las etiquetas HTML para el pie de tabla al pasarle un valor vacío", function() {
             expect(Plantilla.pie()).not.toBe("");
         });
+  
 });
 
 
@@ -184,6 +185,7 @@ describe("Plantilla.Cuerpo_nombres ", function () {
     it("debería devolver las etiquetas HTML para el cuerpo de la tabla nombres al pasarle un valor vacío", function() {
             expect(Plantilla.cuerpo_nombres(p)).not.toBe("");
         });
+  
 });
 
 
