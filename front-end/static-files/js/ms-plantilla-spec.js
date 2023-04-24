@@ -234,6 +234,9 @@ describe("Plantilla.Cuerpo ", function () {
             expect(msj.includes(p.data.lateralidad)).toBeTrue();
 
         });
+    it("debería devolver las etiquetas HTML para el cuerpo de la tabla al pasarle un valor vacío", function() {
+            expect(Plantilla.cuerpo(p)).not.toBe("");
+        });
 });
 
 
@@ -258,6 +261,7 @@ describe("Plantilla.listadoNombres ", function () {
       Plantilla.listadoNombres(vector);
       expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Listado de jugadores por nombre', expectedMsj);
   });
+  
 });
 
 
