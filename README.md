@@ -437,6 +437,16 @@ El código en ese repositorio muestra una aplicación similar, pero con mucha m�
 
 Además, incluye documentación sobre dicho código y un vídeo descriptivo de cómo se ha realizado y cómo funciona la aplicación de ejemplo.
 
+# Práctica 3
+
+## Datos personales
+* Nombre: Lorena Moreno Vilches
+* Correo electrónico: lmv00019@red.ujaen.es
+
+## Enlace tablero Trello
+* https://trello.com/b/2KVgX8V2/practica-3
+
+
 ## Capturas de pantalla fauna
 ### Base de datos
 ![Base de datos de fauna](./assets/img/basededatos.png)
