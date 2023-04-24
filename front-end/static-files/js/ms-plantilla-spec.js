@@ -146,6 +146,9 @@ describe("Plantilla.Pie ", function () {
         function () {
             expect(Plantilla.pie()).toBe("</tbody></table>");
         });
+    it("debería devolver las etiquetas HTML para el pie de tabla al pasarle un valor vacío", function() {
+            expect(Plantilla.pie()).not.toBe("");
+        });
 });
 
 
@@ -155,6 +158,7 @@ describe("Plantilla.Cabecera_nombres ", function () {
         function () {
             expect(Plantilla.cabecera_nombres()).toBe(`<table class="listado-plantilla"><thead><th>Nombre</th></thead><tbody>` );
         });
+    
 });
 
 
