@@ -181,6 +181,9 @@ describe("Plantilla.Cuerpo_nombres ", function () {
         function () {
             expect(Plantilla.cuerpo_nombres(p)).toBe(`<tr title="${p.ref['@ref'].id}"><td>${p.data.nombre}</td></tr>`);
         });
+    it("debería devolver las etiquetas HTML para el cuerpo de la tabla nombres al pasarle un valor vacío", function() {
+            expect(Plantilla.cuerpo_nombres(p)).not.toBe("");
+        });
 });
 
 
