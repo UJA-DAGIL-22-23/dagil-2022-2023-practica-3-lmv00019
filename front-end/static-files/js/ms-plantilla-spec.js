@@ -158,6 +158,9 @@ describe("Plantilla.Cabecera_nombres ", function () {
         function () {
             expect(Plantilla.cabecera_nombres()).toBe(`<table class="listado-plantilla"><thead><th>Nombre</th></thead><tbody>` );
         });
+    it("debería devolver las etiquetas HTML para la cabecera de tabla nombres al pasarle un valor vacío", function() {
+            expect(Plantilla.cabecera_nombres()).not.toBe("");
+        });
     
 });
 
